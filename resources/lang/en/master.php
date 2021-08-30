@@ -1,0 +1,28 @@
+<?php
+
+return array (
+  'welcome' => 'Welcome to Alarkan For Hearing Aids',
+  'About_us' => 'About us',
+  'Contact_us' => 'Contact us',
+  'Enter_Email_Address' => 'Enter Email Address',
+  'Hearing_Test' => 'Hearing Test',
+  'Home' => 'Home',
+  'News' => 'News',
+  'Offers' => 'Offers',
+  'Our_Blogs' => 'Our Blogs',
+  'Products' => 'Products',
+  'Request_for_quote' => 'Request for quote',
+  'Request_for_quote_message' => 'Request for quote message',
+  'Sign_up_today_for_hints_tips_and_the_latest_Updates' => 'Sign up today for hints tips and the latest Updates',
+  'Subscribe' => 'Subscribe',
+  'Usefull_Links' => 'Usefull Links',
+  'Address' => 'Address',
+  'All_Rights_Reserved' => 'All Rights Reserved',
+  'Call_Us_On' => 'Call Us On',
+  'Copyrights' => 'Copyrights',
+  'Email_at' => 'Email at',
+  'Latest_News' => 'Latest News',
+  'Search_Products' => 'Search Products',
+  'Social_Links' => 'Social Links',
+  'products' => 'Products',
+);

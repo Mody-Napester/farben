@@ -1,0 +1,28 @@
+<?php
+
+return array (
+  'welcome' => 'مرحبا بكم في الأركان للسماعات الطبية',
+  'Our_Blogs' => 'منتدياتنا',
+  'Request_for_quote' => 'اطلب عرض',
+  'Request_for_quote_message' => 'حجة لصالح استخدام نص حشو غني عن شيء مثل هذا: إذا كنت تستخدم محتوى حقيقي في عملية التصميم.',
+  'Subscribe' => 'اشترك',
+  'Sign_up_today_for_hints_tips_and_the_latest_Updates' => 'اشترك ليصلك اخر الاخبار',
+  'Enter_Email_Address' => 'ادخل بريدك الالكترونى',
+  'Usefull_Links' => 'صفحات الموقع',
+  'Home' => 'الرئيسية',
+  'News' => 'الاخبار',
+  'Products' => 'منتجات',
+  'About_us' => 'من نحن',
+  'Contact_us' => 'تواصل معنا',
+  'Hearing_Test' => 'اختبار السمع',
+  'Offers' => 'العروض',
+  'Latest_News' => 'اخر الاخبار',
+  'Address' => 'العنوان',
+  'Call_Us_On' => 'اتصل بنا على',
+  'Email_at' => 'ارسل الى',
+  'Copyrights' => 'حقوق النسخ',
+  'All_Rights_Reserved' => 'جميع الحقوق محفوظة',
+  'Search_Products' => 'بحث المنتجات',
+  'Social_Links' => 'الحسابات الاجتماعية',
+  'products' => 'المنتجات',
+);
