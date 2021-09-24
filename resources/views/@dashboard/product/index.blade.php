@@ -21,7 +21,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Ordering</th>
+                            <th>Order</th>
+                            <th>Category</th>
                             <th>Title</th>
                             <th>Details</th>
                             <th>Banner</th>
@@ -35,6 +36,7 @@
                         @foreach($resources as $resource)
                             <tr>
                                 <td>{{ $resource->ordering }}</td>
+                                <td>{{ getFromJson($resource->category->title , lang()) }}</td>
                                 <td>{{ getFromJson($resource->title , lang()) }}</td>
                                 <td>{!! getFromJson($resource->details , lang()) !!}</td>
                                 <td>

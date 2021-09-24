@@ -18,7 +18,22 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-col-form-label" for="category_id">Category</label>
+                            <select class="form-control" name="category_id" id="category_id">
+                                @foreach(\App\Category::orderBy('ordering', 'ASC')->get() as $category)
+                                    <option value="{{ $category->id }}">{{ getFromJson($category->title, lang()) }}</option>
+                                @endforeach
+                            </select>
+
+                            @error('category_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-col-form-label" for="ordering">Order</label>
                             <input type="number" class="form-control" name="ordering" id="ordering">
@@ -29,10 +44,10 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-col-form-label" for="show_in_home">Show in home</label>
-                            <input type="checkbox" class="form-control" name="show_in_home" value="1" id="show_in_home">
+                            <div><input type="checkbox" class="" name="show_in_home" value="1" id="show_in_home"></div>
 
                             @error('show_in_home')
                             <div class="invalid-feedback">{{ $message }}</div>

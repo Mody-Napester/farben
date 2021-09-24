@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Brand;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -38,6 +37,7 @@ class ProductController extends Controller
     {
         // Validation
         $rules = [
+            'category_id' => 'required',
             'banner' => 'required',
             'image' => 'required',
         ];
@@ -84,6 +84,7 @@ class ProductController extends Controller
 
         $resource = Product::create([
             'ordering' => $request->ordering,
+            'category_id' => $request->category_id,
             'show_in_home' => ($request->show_in_home == 1)? 1 : 0 ,
             'title' => json_encode($title),
             'details' => json_encode($details),
@@ -149,6 +150,7 @@ class ProductController extends Controller
 
         // Validation
         $rules = [
+            'category_id' => 'required',
 //            'banner' => 'required',
 //            'image' => 'required',
         ];
@@ -195,6 +197,7 @@ class ProductController extends Controller
 
         $resource = $data['resource']->update([
             'ordering' => $request->ordering,
+            'category_id' => $request->category_id,
             'show_in_home' => ($request->show_in_home == 1)? 1 : 0 ,
             'title' => json_encode($title),
             'details' => json_encode($details),

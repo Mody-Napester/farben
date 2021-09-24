@@ -32,35 +32,37 @@
                 <div id="inner-content" class="inner-content-wrap">
                     <div class="page-content">
 
-
                             <section class="wprt-section">
                                 <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
-                                        </div>
+                                    @foreach(\App\Category::orderBy('ordering', 'ASC')->get() as $category)
+                                        <h2 style="padding: 20px;background-color: #AB4520;color:#ffffff;text-align: center">{{ getFromJson($category->title, lang()) }}</h2>
+                                        @if($category->products()->count() > 0)
+                                            <div style="padding: 30px;background-color: #eeeeee;margin-bottom: 10px;">
+                                                <div class="row">
+                                                    @foreach($category->products()->orderBy('ordering', 'ASC')->get() as $product)
+                                                        <div class="col-md-3">
 
-                                        @foreach($products as $product)
-                                        <div class="col-md-4">
+                                                            <div class="service-item clearfix" style="background-color: #ffffff;padding-bottom: 20px;">
+                                                                <div class="thumb" style="height: 250px;overflow: hidden"><img style="height: 100%" src="{{ url('assets_public/images/product/'. $product->image) }}" alt="{{ getFromJson($product->title , lang()) }}"></div>
+                                                                <div class=" text-center">
+                                                                    <h3 class="title font-size-16" style="margin: 10px 0;"><a href="{{ route('public.product', $product->id) }}">{{ getFromJson($product->title , lang()) }}</a></h3>
+                                                                    {{--                                                    <p class="desc">{!! getFromJson($product->details , lang()) !!}</p>--}}
+                                                                    <a href="{{ route('public.product', $product->id) }}" class="wprt-button small rounded-3px">{{ trans('product.Read_more') }}</a>
+                                                                </div>
+                                                            </div>
 
-                                            <div class="service-item clearfix">
-                                                <div class="thumb"><img src="{{ url('assets_public/images/product/'. $product->image) }}" alt="{{ getFromJson($product->title , lang()) }}"></div>
-                                                <div class="service-item-wrap text-center">
-                                                    <h3 class="title font-size-18" style="margin-bottom: 20px;"><a href="{{ route('public.product', $product->id) }}">{{ getFromJson($product->title , lang()) }}</a></h3>
-{{--                                                    <p class="desc">{!! getFromJson($product->details , lang()) !!}</p>--}}
-                                                    <a href="{{ route('public.product', $product->id) }}" class="wprt-button small rounded-3px">{{ trans('product.Read_more') }}</a>
-                                                </div>
+                                                            <div class="wprt-spacer" data-desktop="55" data-mobi="40" data-smobi="40" style="height:55px"></div>
+
+                                                        </div>
+                                                    @endforeach
+                                                </div><!-- /.row -->
                                             </div>
-
-                                            <div class="wprt-spacer" data-desktop="55" data-mobi="40" data-smobi="40" style="height:55px"></div>
-
-                                        </div>
-                                        @endforeach
-
-                                        <div class="col-md-12">
-                                            <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
-                                        </div>
-                                    </div><!-- /.row -->
+                                        @else
+                                            <div style="padding: 30px;background-color: #eeeeee;margin-bottom: 10px;">
+                                                {{ trans('product.no_product_available') }}
+                                            </div>
+                                        @endif
+                                    @endforeach
                                 </div><!-- /.container -->
                             </section>
 

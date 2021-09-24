@@ -23,6 +23,11 @@
         <a class="nav-link" href="{{ route('media.index') }}"> <i class="fas fa-fw fa-angle-right"></i> <span>Media</span> </a>
     </li>
 
+    <!-- Categories -->
+    <li class="nav-item @if(Route::currentRouteName() == 'category.index') active @endif">
+        <a class="nav-link" href="{{ route('category.index') }}"> <i class="fas fa-fw fa-angle-right"></i> <span>Categories</span> </a>
+    </li>
+
     <!-- Products -->
     <li class="nav-item @if(Route::currentRouteName() == 'product.index') active @endif">
         <a class="nav-link" href="{{ route('product.index') }}"> <i class="fas fa-fw fa-angle-right"></i> <span>Products</span> </a>

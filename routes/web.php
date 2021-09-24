@@ -19,6 +19,7 @@ Auth::routes();
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function (){
     Route::get('/', 'DashboardController@index')->name('dashboard.index');
     Route::resource('about', 'AboutController');
+    Route::resource('category', 'CategoryController');
     Route::resource('product', 'ProductController');
     Route::resource('slider', 'SliderController');
     Route::resource('social', 'SocialController');

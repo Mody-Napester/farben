@@ -1,6 +1,6 @@
 @extends('@public._layouts.master')
 
-@section('page_title') {{ trans('product.Product') }} @endsection
+@section('page_title') {{ getFromJson($product->title , lang()) }} @endsection
 
 @section('body_class') page sidebar-left header-style-1 menu-has-search menu-has-cart header-sticky @endsection
 
@@ -11,14 +11,14 @@
         <div id="featured-title-inner" class="container clearfix">
             <div class="featured-title-inner-wrap">
                 <div class="featured-title-heading-wrap">
-                    <h1 class="featured-title-heading">{{ trans('product.product') }}</h1>
+                    <h1 class="featured-title-heading">{{ getFromJson($product->title , lang()) }}</h1>
                 </div>
                 <div id="breadcrumbs">
                     <div class="breadcrumbs-inner">
                         <div class="breadcrumb-trail">
                             <a href="{{ route('public.home') }}" title="" rel="home" class="trail-begin">{{ trans('product.Home') }}</a>
                             <span class="sep">/</span>
-                            <span class="trail-end">{{ trans('product.product') }}</span>
+                            <span class="trail-end">{{ getFromJson($product->title , lang()) }}</span>
                         </div>
                     </div>
                 </div>

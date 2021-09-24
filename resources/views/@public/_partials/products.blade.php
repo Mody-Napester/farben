@@ -18,7 +18,7 @@
                                 <div class="project-item">
                                     <div class="inner">
                                         <div class="grid">
-                                            <figure class="effect-sadie">
+                                            <figure class="effect-sadie" style="height: 300px">
                                                 <img src="{{ url('assets_public/images/product/'. $product->image) }}" alt="image" />
                                                 <figcaption>
                                                     <div>

@@ -20,7 +20,22 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-col-form-label" for="category_id">Category</label>
+                            <select class="select2 form-control" name="category_id" id="category_id">
+                                @foreach(\App\Category::orderBy('ordering', 'ASC')->get() as $category)
+                                    <option @if($category->id == $resource->category_id) selected @endif value="{{ $category->id }}">{{ getFromJson($category->title, lang()) }}</option>
+                                @endforeach
+                            </select>
+
+                            @error('category_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-col-form-label" for="ordering">Order</label>
                             <input type="number" class="form-control" name="ordering" value="{{ $resource->ordering }}" id="ordering">
@@ -31,10 +46,10 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-col-form-label" for="show_in_home">Show in home</label>
-                            <input type="checkbox" class="form-control" @if($resource->show_in_home == 1) checked @endif value="1" name="show_in_home" id="show_in_home">
+                            <input type="checkbox" class="" @if($resource->show_in_home == 1) checked @endif value="1" name="show_in_home" id="show_in_home">
 
                             @error('show_in_home')
                             <div class="invalid-feedback">{{ $message }}</div>

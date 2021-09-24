@@ -12,7 +12,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'title','details','banner','image','show_in_home','ordering'
+        'category_id','title','details','banner','image','show_in_home','ordering'
     ];
 
     /**
@@ -23,4 +23,8 @@ class Product extends Model
     protected $hidden = [
         '',
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
