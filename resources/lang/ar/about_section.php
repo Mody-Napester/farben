@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'media_image_1' => 'http://localhost/apps/farben/assets_public/images/media/16324985239588.jpg',
+  'media_image_1' => 'http://localhost/apps/farben/assets_public/images/media/16346338523200.jpg',
   'media_image_2' => 'http://localhost/apps/farben/assets_public/images/media/16324985337906.jpg',
   'media_image_3' => 'http://localhost/apps/farben/assets_public/images/media/16324985462607.jpg',
   'media_image_4' => 'http://localhost/apps/farben/assets_public/images/media/16324987856824.jpg',

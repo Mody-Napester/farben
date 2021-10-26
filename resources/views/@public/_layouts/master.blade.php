@@ -24,6 +24,8 @@
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
 
+    <link rel="stylesheet" href="{{ url('assets/css/jquery.bxslider.css') }}">
+
     @if(lang() == 'ar')
         <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
@@ -245,6 +247,23 @@
 <script type="text/javascript" src="{{ url('includes/rev-slider/js/extensions/revolution.extension.parallax.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('includes/rev-slider/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('includes/rev-slider/js/extensions/revolution.extension.video.min.js') }}"></script>
+
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.slider').bxSlider({
+            mode: 'fade',
+            speed : 500,
+            slideMargin : 0,
+            randomStart : true,
+            captions : true,
+            adaptiveHeight : true,
+            responsive : true,
+            pager : false,
+        });
+    });
+</script>
 
 </body>
 
