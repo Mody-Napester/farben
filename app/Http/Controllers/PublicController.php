@@ -80,6 +80,8 @@ class PublicController extends Controller
             $to = trans('send_mails.to') ;
             $subject = ($request->has('subject'))? $request->subject : 'Message From website';
 
+            $sendMail = mail($to, $subject, $mail, $headers);
+
             // Return
             if($resource){
                 return back()->with('message', [
@@ -142,6 +144,8 @@ class PublicController extends Controller
 
         $to = trans('send_mails.to') ;
         $subject = ($request->has('subject'))? $request->subject : 'Message From website';
+
+        $sendMail = mail($to, $subject, $mail, $headers);
 
         // Return
         if($resource){
