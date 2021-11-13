@@ -48,6 +48,11 @@
         <a class="nav-link" href="{{ route('testimonial.index') }}"> <i class="fas fa-fw fa-angle-right"></i> <span>Testimonial</span> </a>
     </li>
 
+    <!-- Messages -->
+    <li class="nav-item @if(Route::currentRouteName() == 'message.index') active @endif">
+        <a class="nav-link" href="{{ route('message.index') }}"> <i class="fas fa-fw fa-angle-right"></i> <span>Messages</span> </a>
+    </li>
+
     <!-- translations -->
     <li class="nav-item">
         <a class="nav-link" href="{{ url('translations') }}"> <i class="fas fa-fw fa-angle-right"></i> <span>Translations</span> </a>

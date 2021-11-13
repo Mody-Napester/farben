@@ -68,6 +68,76 @@
 
 @endif
 
+    <style>
+        .dropdown-menu{
+            max-height: 300px;
+            overflow: auto;
+        }
+        .dropdown-item{
+            padding: 10px;
+            display: block;
+        }
+        .service-item{
+            transition: all .2s ease-in-out;
+            border-radius: 5px;
+            box-shadow: 1px 1px 1px #cccccc;
+            overflow: hidden;
+        }
+        .service-item:hover{
+            transform: scale(1.1);
+            box-shadow: 1px 1px 10px #cccccc;
+        }
+        .sticky-side{
+            background-color: #eeeeee;
+            padding: 10px;
+            position: fixed;
+            top: 30%;
+            left: 0;
+            z-index: 9999991;
+        }
+        .sticky-side a{
+            display: block;
+        }
+        .sticky-side img{
+            width: 20px;
+        }
+
+        /* The alert message box */
+        .alert {
+            padding: 20px;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        /* The close button */
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* When moving the mouse over the close button */
+        .closebtn:hover {
+            color: black;
+        }
+
+        .alert-success{
+            background-color: green;
+        }
+        .alert-danger{
+            background-color: #f44336;
+        }
+        .invalid-feedback{
+            color: #f44336;
+            margin: -10px 0px 10px 0px;
+        }
+    </style>
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -76,6 +146,18 @@
 </head>
 
 <body class="@yield('body_class')">
+
+<div class="sticky-side">
+    <a href="{{ trans('master.messenger_link') }}">
+        <img src="{{ url('assets_public/images/messenger.webp') }}" alt="">
+    </a>
+    <a href="{{ trans('master.whatsapp_link') }}">
+        <img src="{{ url('assets_public/images/whatsapp.png') }}" alt="">
+    </a>
+    <a href="{{ trans('master.phone_number') }}">
+        <img src="{{ url('assets_public/images/phone.png') }}" alt="">
+    </a>
+</div>
 
 <div id="wrapper" class="animsition">
     <div id="page" class="clearfix">
@@ -88,14 +170,15 @@
 
                         <div class="top-bar-socials">
                             <div class="inner">
-                                @if(lang() == 'ar')
-                                    <a class="" href="{{ route('language', ['en']) }}" aria-hidden="true">English</a>
-                                @else
-                                    <a class="" href="{{ route('language', ['ar']) }}" aria-hidden="true">عربي</a>
-                                @endif
+{{--                                @if(lang() == 'ar')--}}
+{{--                                    <a class="" href="{{ route('language', ['en']) }}" aria-hidden="true">English</a>--}}
+{{--                                @else--}}
+{{--                                    <a class="" href="{{ route('language', ['ar']) }}" aria-hidden="true">عربي</a>--}}
+{{--                                @endif--}}
                                 <span class="icons">
                                     @foreach(\App\Social::all() as $social)
-                                        <a target="_blank" href="{{ $social->link }}" title="{{ $social->name }}"><span class="fa {{ $social->provider->class }}" aria-hidden="true"></span></a>
+                                        <a style="color: {{ $social->provider->color }};" target="_blank" href="{{ $social->link }}" title="{{ $social->name }}">
+                                            <span style="font-size: 23px;" class="fa {{ $social->provider->class }}" aria-hidden="true"></span></a>
                                     @endforeach
                                 </span>
                             </div>
@@ -106,8 +189,6 @@
                                 <i class="fa fa-phone-square"></i>{{ trans('contact.phone') }}
                                 <i class="fa fa-envelope"></i>{{ trans('contact.email') }}
                                 <i class="fa fa-clock-o"></i>{{ trans('contact.working_hours') }}
-
-
                             </span>
                         </div>
                     </div>
@@ -132,8 +213,30 @@
                             <ul class="menu">
                                 <li class="menu-item @if(Route::currentRouteName() == 'public.home') current @endif"><a href="{{ route('public.home') }}">{{ trans('master.Home') }}</a></li>
                                 <li class="menu-item @if(Route::currentRouteName() == 'public.about') current @endif"><a href="{{ route('public.about') }}">{{ trans('master.About_us') }}</a></li>
-                                <li class="menu-item @if(Route::currentRouteName() == 'public.products') current @endif"><a href="{{ route('public.products') }}">{{ trans('master.products') }}</a></li>
+{{--                                <li class="menu-item @if(Route::currentRouteName() == 'public.products') current @endif"><a href="{{ route('public.products') }}">{{ trans('master.products') }}</a></li>--}}
+                                <li class="menu-item dropdown">
+                                    <a class="menu-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ trans('master.products') }}
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @foreach(\App\Category::orderBy('ordering', 'ASC')->get() as $category)
+                                        <a class="dropdown-item" href="{{ route('public.products', $category->id) }}">{{ getFromJson($category->title , lang()) }}</a>
+                                        @endforeach
+                                    </div>
+                                </li>
                                 <li class="menu-item @if(Route::currentRouteName() == 'public.contact') current @endif"><a href="{{ route('public.contact') }}">{{ trans('master.Contact_us') }}</a></li>
+
+                                <li class="menu-item dropdown">
+                                    <a class="menu-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-globe"></i>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('language', ['en']) }}">English</a>
+                                        <a class="dropdown-item" href="{{ route('language', ['ar']) }}">عربي</a>
+                                    </div>
+                                </li>
                             </ul>
                         </nav><!-- /#main-nav -->
                     </div>

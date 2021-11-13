@@ -34,8 +34,8 @@
 
                             <section class="wprt-section">
                                 <div class="container">
-                                    @foreach(\App\Category::orderBy('ordering', 'ASC')->get() as $category)
-                                        <h2 style="padding: 20px;background-color: #AB4520;color:#ffffff;text-align: center">{{ getFromJson($category->title, lang()) }}</h2>
+                                    @foreach($categories as $category)
+                                        <h2 style="padding: 20px;background-color: #AB4520;color:#ffffff;text-align: center;border-bottom: 3px dashed;">{{ getFromJson($category->title, lang()) }}</h2>
                                         @if($category->products()->count() > 0)
                                             <div style="padding: 30px;background-color: #eeeeee;margin-bottom: 10px;">
                                                 <div class="row">

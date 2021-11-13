@@ -67,28 +67,53 @@
 
                                     <div class="col-md-8">
                                         <h4 class="margin-bottom-15 rtl-el">{{ trans('contact.Get_in_touch') }}</h4>
-                                        <form action="" method="post" class="rtl-el contact-form wpcf7-form" novalidate="novalidate">
+
+                                        <form action="{{ route('public.contact.post') }}" method="post" class="rtl-el wpcf7-form">
+                                            @csrf
+
                                             <div class="wprt-contact-form-1">
-											<span class="wpcf7-form-control-wrap name">
-												<input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="{{ trans('contact.Name') }} *" required="">
-											</span>
+
+                                                <span class="wpcf7-form-control-wrap name">
+                                                    <input style="margin-bottom: 10px !important;" type="text" tabindex="1" id="name" name="name" value="{{ old('name') }}" class="wpcf7-form-control" placeholder="{{ trans('contact.Name') }} *" required="">
+                                                    @error('name')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </span>
+
+                                                <span class="wpcf7-form-control-wrap phone" style="margin-bottom: 10px;">
+                                                    <input style="margin-bottom: 10px !important;" type="text" tabindex="3" id="phone" name="phone" value="{{ old('phone') }}" class="wpcf7-form-control" placeholder="{{ trans('contact.Phone_Number') }} *" required="">
+                                                    @error('phone')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </span>
+
                                                 <span class="wpcf7-form-control-wrap email">
-												<input type="email" tabindex="2" id="email" name="email" value="" class="wpcf7-form-control" placeholder="{{ trans('contact.Email') }} *" required="">
-											</span>
-                                                <span class="wpcf7-form-control-wrap phone">
-												<input type="text" tabindex="3" id="phone" name="phone" value="" class="wpcf7-form-control" placeholder="{{ trans('contact.Phone_Number') }}">
-											</span>
+                                                    <input type="email" tabindex="2" id="email" name="email" value="{{ old('email') }}" class="wpcf7-form-control" placeholder="{{ trans('contact.Email') }} *" required="">
+                                                    @error('email')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </span>
+
                                                 <span class="wpcf7-form-control-wrap subject">
-												<input type="text" tabindex="4" id="subject" name="subject" value="" class="wpcf7-form-control" placeholder="{{ trans('contact.Subject') }} *" required="">
-											</span>
+                                                    <input type="text" tabindex="2" id="subject" name="subject" value="{{ old('subject') }}" class="wpcf7-form-control" placeholder="{{ trans('contact.Subject') }} *" required="">
+                                                    @error('subject')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </span>
+
                                                 <span class="wpcf7-form-control-wrap message">
-												<textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="{{ trans('contact.Message') }}" required=""></textarea>
-											</span>
+                                                    <textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="{{ trans('contact.Message') }} *" required="">{{ old('message') }}</textarea>
+                                                    @error('message')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </span>
+
                                                 <div class="wrap-submit">
                                                     <input type="submit" value="{{ trans('contact.SEND_MESSAGE') }}" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
                                                 </div>
                                             </div>
                                         </form>
+
                                     </div><!-- /.col-md-8 -->
 
                                     <div class="col-md-12">

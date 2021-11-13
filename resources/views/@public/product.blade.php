@@ -31,9 +31,16 @@
                 <div id="site-content" class="site-content clearfix">
                     <div id="inner-content" class="inner-content-wrap">
                         <div class="container-fluid padding-0">
-                            <div class="row">
+                                <div class="row">
                                 <div class="col-md-12">
                                     <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60" style="height:80px"></div>
+
+                                    @if(session()->has('message'))
+                                        <div class="alert alert-{{ session('message')['type'] }}">
+                                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                            {{ session('message')['text'] }}
+                                        </div>
+                                    @endif
 
                                     <h2 class="line-height-normal margin-bottom-10">{{ getFromJson($product->title , lang()) }}</h2>
                                     <div class="wprt-lines style-1 custom-3">
@@ -45,11 +52,44 @@
 
                                     <img style="width: 100%;" src="{{ url('assets_public/images/product/'. $product->banner) }}" alt="{{ getFromJson($product->title , lang()) }}">
 
+                                    <br><br>
+
                                     <div class="margin-bottom-0">{!! getFromJson($product->details , lang()) !!}</div>
 
                                     <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40" style="height:40px"></div>
                                 </div><!-- /.col-md-12 -->
 
+
+                                <div class="col-md-12">
+                                    <h4 class="margin-bottom-15 rtl-el">{{ trans('contact.order_this_product') }}</h4>
+                                    <form action="{{ route('public.product.post', $product->id) }}" method="post" class="rtl-el wpcf7-form">
+                                        @csrf
+
+                                        <div class="wprt-contact-form-1">
+											<span class="wpcf7-form-control-wrap message">
+												<input style="margin-bottom: 10px !important;" type="text" tabindex="1" id="name" name="name" value="{{ old('name') }}" class="wpcf7-form-control" placeholder="{{ trans('contact.Name') }} *" required="">
+                                                @error('name')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+											</span>
+                                            <span class="wpcf7-form-control-wrap message" style="margin-bottom: 10px;">
+												<input style="margin-bottom: 10px !important;" type="text" tabindex="3" id="phone" name="phone" value="{{ old('phone') }}" class="wpcf7-form-control" placeholder="{{ trans('contact.Phone_Number') }} *" required="">
+											    @error('phone')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </span>
+                                            <span class="wpcf7-form-control-wrap message">
+												<textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="{{ trans('contact.Message') }} *" required="">{{ old('message') }}</textarea>
+											    @error('message')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </span>
+                                            <div class="wrap-submit">
+                                                <input type="submit" value="{{ trans('contact.SEND_MESSAGE') }}" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div><!-- /.col-md-8 -->
                             </div><!-- /.row -->
                         </div><!-- /.container-fluid -->
                     </div><!-- /.inner-content-wrap -->
