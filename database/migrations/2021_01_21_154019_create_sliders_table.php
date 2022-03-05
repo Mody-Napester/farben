@@ -16,12 +16,12 @@ class CreateSlidersTable extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image');
-            $table->text('text_1');
-            $table->text('text_2');
-            $table->text('button_1_text');
-            $table->string('button_1_link');
-            $table->text('button_2_text');
-            $table->string('button_2_link');
+            $table->text('text_1')->nullable();
+            $table->text('text_2')->nullable();
+            $table->text('button_1_text')->nullable();
+            $table->string('button_1_link')->nullable();
+            $table->text('button_2_text')->nullable();
+            $table->string('button_2_link')->nullable();
             $table->timestamps();
         });
     }

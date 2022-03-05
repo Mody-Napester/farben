@@ -38,30 +38,30 @@ class SliderController extends Controller
         // Validation
         $rules = [
             'image' => 'required',
-            'button_1_link' => 'required',
-            'button_2_link' => 'required',
+            // 'button_1_link' => 'required',
+            // 'button_2_link' => 'required',
         ];
 
         foreach (config('vars.langs') as $lang) {
             $rules['text_1_' . $lang] = 'required';
-            $rules['text_2_' . $lang] = 'required';
-            $rules['button_1_text_' . $lang] = 'required';
-            $rules['button_2_text_' . $lang] = 'required';
+            // $rules['text_2_' . $lang] = 'required';
+            // $rules['button_1_text_' . $lang] = 'required';
+            // $rules['button_2_text_' . $lang] = 'required';
         }
 
         $request->validate($rules);
 
         // Code
         $text_1 = [];
-        $text_2 = [];
-        $button_1_text = [];
-        $button_2_text = [];
+        // $text_2 = [];
+        // $button_1_text = [];
+        // $button_2_text = [];
 
         foreach (config('vars.langs') as $lang) {
             $text_1[$lang] = $request->input('text_1_' . $lang);
-            $text_2[$lang] = $request->input('text_2_' . $lang);
-            $button_1_text[$lang] = $request->input('button_1_text_' . $lang);
-            $button_2_text[$lang] = $request->input('button_2_text_' . $lang);
+            // $text_2[$lang] = $request->input('text_2_' . $lang);
+            // $button_1_text[$lang] = $request->input('button_1_text_' . $lang);
+            // $button_2_text[$lang] = $request->input('button_2_text_' . $lang);
         }
 
         if($request->hasFile('image')){
@@ -78,11 +78,11 @@ class SliderController extends Controller
 
         $resource = Slider::create([
             'text_1' => json_encode($text_1),
-            'text_2' => json_encode($text_2),
-            'button_1_text' => json_encode($button_1_text),
-            'button_2_text' => json_encode($button_2_text),
-            'button_1_link' => $request->button_1_link,
-            'button_2_link' => $request->button_2_link,
+            // 'text_2' => json_encode($text_2),
+            // 'button_1_text' => json_encode($button_1_text),
+            // 'button_2_text' => json_encode($button_2_text),
+            // 'button_1_link' => $request->button_1_link,
+            // 'button_2_link' => $request->button_2_link,
             'image' => $image,
         ]);
 
@@ -145,30 +145,30 @@ class SliderController extends Controller
         // Validation
         $rules = [
 //            'image' => 'required',
-            'button_1_link' => 'required',
-            'button_2_link' => 'required',
+            // 'button_1_link' => 'required',
+            // 'button_2_link' => 'required',
         ];
 
         foreach (config('vars.langs') as $lang) {
             $rules['text_1_' . $lang] = 'required';
-            $rules['text_2_' . $lang] = 'required';
-            $rules['button_1_text_' . $lang] = 'required';
-            $rules['button_2_text_' . $lang] = 'required';
+            // $rules['text_2_' . $lang] = 'required';
+            // $rules['button_1_text_' . $lang] = 'required';
+            // $rules['button_2_text_' . $lang] = 'required';
         }
 
         $request->validate($rules);
 
         // Code
         $text_1 = [];
-        $text_2 = [];
-        $button_1_text = [];
-        $button_2_text = [];
+        // $text_2 = [];
+        // $button_1_text = [];
+        // $button_2_text = [];
 
         foreach (config('vars.langs') as $lang) {
             $text_1[$lang] = $request->input('text_1_' . $lang);
-            $text_2[$lang] = $request->input('text_2_' . $lang);
-            $button_1_text[$lang] = $request->input('button_1_text_' . $lang);
-            $button_2_text[$lang] = $request->input('button_2_text_' . $lang);
+            // $text_2[$lang] = $request->input('text_2_' . $lang);
+            // $button_1_text[$lang] = $request->input('button_1_text_' . $lang);
+            // $button_2_text[$lang] = $request->input('button_2_text_' . $lang);
         }
 
         if($request->hasFile('image')){
@@ -185,11 +185,11 @@ class SliderController extends Controller
 
         $resource = $data['resource']->update([
             'text_1' => json_encode($text_1),
-            'text_2' => json_encode($text_2),
-            'button_1_text' => json_encode($button_1_text),
-            'button_2_text' => json_encode($button_2_text),
-            'button_1_link' => $request->button_1_link,
-            'button_2_link' => $request->button_2_link,
+            // 'text_2' => json_encode($text_2),
+            // 'button_1_text' => json_encode($button_1_text),
+            // 'button_2_text' => json_encode($button_2_text),
+            // 'button_1_link' => $request->button_1_link,
+            // 'button_2_link' => $request->button_2_link,
             'image' => (isset($image)? $image : $data['resource']->image),
         ]);
 

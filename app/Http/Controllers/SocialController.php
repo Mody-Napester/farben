@@ -41,6 +41,7 @@ class SocialController extends Controller
         $rules = [
             'provider_id' => 'required',
             'name' => 'required',
+            'color' => 'required',
             'link' => 'required',
         ];
 
@@ -49,6 +50,7 @@ class SocialController extends Controller
         $resource = Social::create([
             'provider_id' => $request->provider_id,
             'name' => $request->name,
+            'color' => $request->color,
             'link' => $request->link,
         ]);
 
@@ -113,6 +115,7 @@ class SocialController extends Controller
         $rules = [
             'provider_id' => 'required',
             'name' => 'required',
+            'color' => 'required',
             'link' => 'required',
         ];
 
@@ -121,6 +124,7 @@ class SocialController extends Controller
         $resource = $data['resource']->update([
             'provider_id' => $request->provider_id,
             'name' => $request->name,
+            'color' => $request->color,
             'link' => $request->link,
         ]);
 

@@ -66,6 +66,10 @@
                         </section>
                         @endforeach
 
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                        </div>
+
                         @include('@public._partials.promotion')
 
                         @include('@public._partials.testimonials')

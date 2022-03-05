@@ -23,6 +23,7 @@
                         <tr>
                             <th>Provider</th>
                             <th>Name</th>
+                            <th>Color</th>
                             <th>Link</th>
                             <th>Created at</th>
                             <th>Controls</th>
@@ -34,6 +35,7 @@
                             <tr>
                                 <td>{{ $resource->provider->name }}</td>
                                 <td>{{ $resource->name }}</td>
+                                <td>{{ $resource->color }}</td>
                                 <td>{{ $resource->link }}</td>
                                 <td>{{ $resource->created_at }}</td>
                                 <td>

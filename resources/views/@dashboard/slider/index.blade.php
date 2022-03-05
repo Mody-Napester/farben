@@ -22,11 +22,11 @@
                     <thead>
                         <tr>
                             <th>Text 1</th>
-                            <th>Text 2</th>
+                            {{-- <th>Text 2</th>
                             <th>Button 1 text</th>
                             <th>Button 2 text</th>
                             <th>Button 1 link</th>
-                            <th>Button 2 link</th>
+                            <th>Button 2 link</th> --}}
                             <th>Image</th>
                             <th>Created at</th>
                             <th>Controls</th>
@@ -37,11 +37,11 @@
                         @foreach($resources as $resource)
                             <tr>
                                 <td>{{ getFromJson($resource->text_1 , lang()) }}</td>
-                                <td>{{ getFromJson($resource->text_2 , lang()) }}</td>
+                                {{-- <td>{{ getFromJson($resource->text_2 , lang()) }}</td>
                                 <td>{{ getFromJson($resource->button_1_text , lang()) }}</td>
                                 <td>{{ getFromJson($resource->button_2_text , lang()) }}</td>
                                 <td>{{ $resource->button_1_link }}</td>
-                                <td>{{ $resource->button_2_link }}</td>
+                                <td>{{ $resource->button_2_link }}</td> --}}
                                 <td>
                                     <img style="width: 150px;" class="img-fluid" src="{{ url('assets_public/images/slider/'. $resource->image) }}" alt="">
                                 </td>

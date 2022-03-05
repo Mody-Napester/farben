@@ -34,7 +34,7 @@
                         </div>
                     @endforeach
 
-                    @foreach(config('vars.langs') as $lang)
+                    {{-- @foreach(config('vars.langs') as $lang)
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-col-form-label" for="text_2_{{ $lang }}">Text 2 ({{ $lang }})</label>
@@ -109,7 +109,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="col-md-12">
                         <div class="form-group">

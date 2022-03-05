@@ -18,7 +18,7 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-col-form-label" for="provider_id">Provider</label>
                             <select class="form-control @error('provider_id') is-invalid @enderror" id="provider_id" name="provider_id">
@@ -28,6 +28,19 @@
                             </select>
 
                             @error('provider_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-col-form-label" for="color">Color</label>
+                            <input class="form-control @error('color') is-invalid @enderror "
+                                   id="color" type="color" name="color"
+                                   placeholder="Enter color .." value="{{ old('color') }}">
+
+                            @error('color')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>

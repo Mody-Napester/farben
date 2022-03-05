@@ -1,8 +1,6 @@
 <div class="slider">
     @foreach($sliders as $slider)
-    <div>
         <img src="{{ url('assets_public/images/slider/'.$slider->image) }}" alt="{{ getFromJson($slider->text_1 , lang()) }}" title="{{ getFromJson($slider->text_1 , lang()) }}">
-    </div>
     @endforeach
 </div>
 

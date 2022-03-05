@@ -19,8 +19,11 @@
                     <!-- Promotion -->
                     @include('@public._partials.call_to_action')
 
+                    <!-- Our -->
+                    @include('@public._partials.ours')
+
                     <!-- WHY CHOOSE US -->
-                    @include('@public._partials.why')
+                    {{-- @include('@public._partials.why') --}}
 
                     <!-- WORKS -->
                     @include('@public._partials.products')

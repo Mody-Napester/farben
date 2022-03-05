@@ -12,7 +12,7 @@ class Social extends Model
      * @var array
      */
     protected $fillable = [
-        'provider_id','name','link',
+        'provider_id', 'color','name','link',
     ];
 
     /**

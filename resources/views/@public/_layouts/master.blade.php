@@ -91,7 +91,7 @@
             background-color: #eeeeee;
             padding: 10px;
             position: fixed;
-            top: 30%;
+            top: 25%;
             left: 0;
             z-index: 9999991;
         }
@@ -177,7 +177,7 @@
 {{--                                @endif--}}
                                 <span class="icons">
                                     @foreach(\App\Social::all() as $social)
-                                        <a style="color: {{ $social->provider->color }};" target="_blank" href="{{ $social->link }}" title="{{ $social->name }}">
+                                        <a style="color: {{ $social->color }};" target="_blank" href="{{ $social->link }}" title="{{ $social->name }}">
                                             <span style="font-size: 23px;" class="fa {{ $social->provider->class }}" aria-hidden="true"></span></a>
                                     @endforeach
                                 </span>
